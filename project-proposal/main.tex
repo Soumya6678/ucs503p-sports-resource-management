@@ -1,440 +1,759 @@
 \documentclass[11pt,a4paper]{article}
+
+% -----------------------------------------------------
+% PACKAGES
+% -----------------------------------------------------
+
 \usepackage[margin=1in]{geometry}
 \usepackage{hyperref}
 \usepackage{enumitem}
 \usepackage{graphicx}
 \usepackage{xcolor}
+\usepackage{titling}
 
 % -----------------------------------------------------
-% bvraghav-tiet-ucs503p-article.sty
+% TIET UCS503P PROPOSAL FORMAT
 % -----------------------------------------------------
 
-% Variable: Lab Instructor
-\makeatletter \newcommand{\BvrSetLabInstructor}[1]{%
+\makeatletter
+\newcommand{\BvrSetLabInstructor}[1]{%
   \gdef\Bvr@LabInstructor{#1}}
-% default
-\newcommand{\Bvr@LabInstructor}{Dr. Raghav %
-  B. Venkataramaiyer}
-% public accessor
+\newcommand{\Bvr@LabInstructor}{Ms. Anushka Chaudhary}
 \newcommand{\BvrLabInstructorValue}{\Bvr@LabInstructor}
 \makeatother
 
-% Add subtitle
-\usepackage{titling}
-% -- Set title bold
-\pretitle{\begin{center}\bfseries\fontsize{18bp}{18bp}\selectfont}
+% -----------------------------------------------------
+% SUBTITLE
+% -----------------------------------------------------
+
+\pretitle{
+    \begin{center}
+    \bfseries
+    \fontsize{18bp}{18bp}\selectfont
+}
+
 \makeatletter
 \newcommand{\BvrSubtitle}[1]{%
-  \posttitle{%
-    \par\end{center}
-    \begin{center}\large#1\end{center}
-    \vskip 0.5em}%
+    \posttitle{%
+        \par
+        \end{center}
+        \begin{center}
+        \large #1
+        \end{center}
+        \vskip 0.5em
+    }%
 }
 \makeatother
 
-% Hints in the section title(s)
-\newcommand{\BvrHint}[1]{%
-  {\normalfont\normalsize\itshape\hfill #1}}
+% -----------------------------------------------------
+% SECTION HINTS
+% -----------------------------------------------------
 
+\newcommand{\BvrHint}[1]{%
+    {\normalfont\normalsize\itshape\hfill #1}
+}
+
+% -----------------------------------------------------
+% PROJECT INFORMATION
 % -----------------------------------------------------
 
 \title{Sports Resource Management System}
 
-\BvrSetLabInstructor{Dr. Raghav B. Venkataramaiyer}
+\BvrSetLabInstructor{Ms. Anushka Chaudhary}
 
 \BvrSubtitle{%
-  Project Proposal for UCS503P  \\
-  Submitted to: \BvrLabInstructorValue \\ \bfseries
-  Thapar Institute of Engineering and Technology%
+    Project Proposal for UCS503P  \\
+    Submitted to: \BvrLabInstructorValue \\ \bfseries
+    Thapar Institute of Engineering and Technology
 }
 
 \author{
-  Soumya Smita Sahoo, AIML%
-  \thanks{Roll No: \texttt{1024240041}, %
-    Email: \texttt{ssahoo\_be24\@thapar.edu}}
-  \and
-  Himasri, AIML%
-  \thanks{Roll No: \texttt{1024240038}, %
-    Email: \texttt{chimasri\_be24\@thapar.edu}}
-  \and
-  Gaganpreet Kaur, AIML%
-  \thanks{Roll No: \texttt{1024240044}, %
-    Email: \texttt{gkaur\_be24\@thapar.edu}}
+    Soumya Smita Sahoo, AIML%
+    \thanks{
+        Roll No: \texttt{1024240041}
+    }
+    \and
+    Himasri Chadalavada, AIML%
+    \thanks{
+        Roll No: \texttt{1024240038}
+    }
+    \and
+    Gaganpreet Kaur, AIML%
+    \thanks{
+        Roll No: \texttt{1024240044}
+    }
 }
 
-\date{\today}
+\date{September 2026}
+
+% -----------------------------------------------------
+% DOCUMENT
+% -----------------------------------------------------
 
 \begin{document}
+
 \maketitle
 
+% =====================================================
+% 1. HIGHER-ORDER GOAL
+% =====================================================
+
 \section{Higher-order goal%
-  \BvrHint{\ldots secondary framing}}
+    \BvrHint{\ldots efficient campus sports management}
+}
 
-This project aims to improve the accessibility, utilization, and management of sports resources within a university campus. While sports equipment and facilities may be available, students and coaches often face difficulty in knowing their availability, requesting equipment, booking courts, reporting damage, and communicating requirements to the sports administration.
+This project aims to improve the accessibility, organization, and
+management of sports resources within a university campus. Sports
+facilities and equipment may be available, but students, coaches, and
+sports administration may face difficulty in knowing their availability,
+requesting equipment, booking facilities, tracking resources, and
+communicating requirements.
 
-The immediate engineering objective is to translate this fragmented process into a centralized, trackable mobile application that supports \emph{equipment management, facility booking, issue/return workflows, maintenance, and user feedback}.
+The immediate engineering objective is to translate these fragmented
+activities into a centralized and trackable mobile application that
+supports equipment management, facility booking, equipment requests,
+and resource tracking.
 
-\section{Time-to-value %
-  \BvrHint{\ldots primary heuristic}}
+The application is designed for different categories of users including
+students or players, coaches, sports officers, administrators, and
+maintenance staff.
+
+% =====================================================
+% 2. TIME-TO-VALUE
+% =====================================================
+
+\section{Time-to-value%
+    \BvrHint{\ldots primary heuristic}
+}
 
 \begin{itemize}[leftmargin=0.7cm]
-    \item We will deliver meaningful increments quickly by first implementing the core workflow of equipment search, request, approval, issue, and return.
-    \item We will use short weekly iterations to obtain feedback and progressively add facility booking, maintenance, notifications, and feedback functionality.
-    \item The initial version will focus on a small set of sports and resources before expanding to the complete campus inventory.
-    \item Success is defined by what can be delivered and measured in the first iteration, then improved based on user feedback.
+
+    \item We will deliver meaningful increments quickly by first
+    implementing the core mobile workflows for login, equipment
+    management, facility management, booking, and equipment requests.
+
+    \item Development will be carried out incrementally so that the
+    basic application and backend can be integrated before adding
+    secondary modules.
+
+    \item The initial prototype will focus on the most important
+    equipment and facility management operations rather than attempting
+    to implement every feature simultaneously.
+
+    \item Additional functionality such as administrator management,
+    maintenance tracking, feedback, and notifications will be added in
+    subsequent iterations.
+
+    \item Success in the initial stage is defined by having a working
+    mobile prototype with reliable communication between the application,
+    backend, and database.
+
 \end{itemize}
+
+% =====================================================
+% 3. PROBLEM STATEMENT
+% =====================================================
 
 \section{Problem Statement}
 
-Students and athletes often depend on sports offices or informal communication to access campus sports equipment and facilities. This can lead to uncertainty regarding availability, booking conflicts, missing equipment, delayed returns, and difficulty reporting damaged resources.
+Students and athletes often depend on sports offices or informal
+communication to access campus sports equipment and facilities. This
+can lead to uncertainty regarding availability, booking conflicts,
+difficulty in tracking equipment, and delays in handling resource
+requests.
 
 Common pain points include:
 
 \begin{itemize}[leftmargin=0.7cm]
-    \item \textbf{Fragmentation:} equipment requests, court bookings, maintenance complaints, and suggestions may be handled through different channels such as physical registers, messages, calls, or informal communication.
-    
-    \item \textbf{Low availability transparency:} students may not know whether a particular equipment item or court is currently available, already issued, reserved, or under maintenance.
-    
-    \item \textbf{Booking conflicts:} multiple users or teams may request the same facility or equipment for overlapping time periods, requiring manual coordination.
-    
-    \item \textbf{Poor equipment tracking:} the sports administration may have difficulty tracking who currently has an item, when it was issued, when it should be returned, its current condition, and its maintenance history.
-    
-    \item \textbf{Delayed maintenance:} damaged equipment or facilities may remain unavailable because reporting and maintenance tracking are not centralized.
-    
-    \item \textbf{Limited user feedback:} students may have suggestions for new equipment, additional courts, improvements to existing facilities, or changes to sports services, but there may not be a structured mechanism to collect and prioritize this feedback.
+
+    \item \textbf{Fragmentation:}
+    Equipment requests, facility bookings, and resource-related
+    communication may be handled through different channels such as
+    physical registers, messages, calls, or informal communication.
+
+    \item \textbf{Low availability transparency:}
+    Students and coaches may not know whether a particular equipment
+    item or facility is currently available.
+
+    \item \textbf{Booking conflicts:}
+    Multiple users may attempt to book the same facility for overlapping
+    time periods, requiring manual coordination.
+
+    \item \textbf{Poor equipment tracking:}
+    Sports administration may face difficulty tracking equipment
+    quantities, availability, condition, requests, and usage.
+
+    \item \textbf{Equipment identification:}
+    When equipment requires repair, maintenance staff need to identify
+    the exact item. A unique Equipment ID can be used for this purpose.
+
+    \item \textbf{Request management:}
+    Equipment requests need to be stored and managed systematically so
+    that sports staff can review and process them.
+
+    \item \textbf{Limited centralized information:}
+    Users, equipment, facilities, bookings, and requests should be
+    connected through a centralized database.
+
 \end{itemize}
 
-\textbf{Why this matters now (campus context):} In a university environment with a large student population and limited sports resources, even small improvements in resource allocation and coordination can reduce booking conflicts, improve equipment utilization, and make sports facilities easier to access.
+% =====================================================
+% 4. PROPOSED SOLUTION
+% =====================================================
 
-\section{Proposed Solution %
-  \BvrHint{\ldots Software Proposition}}
+\section{Proposed Solution%
+    \BvrHint{\ldots Sports Resource Management Mobile Application}
+}
 
 \subsection{Overview}
 
-Build a \textbf{mobile-based Sports Resource Management System} with the following components:
+Build a cross-platform mobile application that provides role-based
+access to sports resource management functionality.
+
+The proposed system contains the following components:
 
 \begin{itemize}[leftmargin=0.7cm]
 
-    \item \textbf{Student/Athlete module:} users can search equipment, view availability, request equipment, book sports facilities, view active bookings, track issued equipment, report damaged resources, and submit reviews, feedback, and suggestions.
-    
-    \item \textbf{Sports Administration module:} sports officers can manage equipment inventory, approve or reject requests, issue and receive equipment, manage facility bookings, track overdue equipment, manage fines, and monitor maintenance.
-    
-    \item \textbf{Coach/Team module:} coaches can request equipment for teams, reserve facilities for practice, view team bookings, and submit equipment requirements.
-    
-    \item \textbf{Maintenance module:} maintenance staff can view reported issues and update their status through the workflow: Reported $\rightarrow$ Inspected $\rightarrow$ Under Repair $\rightarrow$ Repaired $\rightarrow$ Available.
-    
-    \item \textbf{Feedback and Suggestion Box:} users can submit equipment suggestions, court or facility suggestions, complaints, service feedback, and ratings. Sports administrators can categorize, review, and update the status of suggestions.
-    
-    \item \textbf{Admin module:} administrators can manage users, sports categories, equipment, facilities, policies, and view system reports and statistics.
-    
+    \item \textbf{Student/Player App:}
+    Students can log in, view sports equipment, check availability,
+    request equipment, view facilities, and book available facilities.
+
+    \item \textbf{Coach Module:}
+    Coaches can view facilities, check availability, book facilities
+    for sports activities, and request required equipment.
+
+    \item \textbf{Sports Officer Module:}
+    Sports officers can manage equipment and facilities, review
+    equipment requests, and manage booking-related information.
+
+    \item \textbf{Maintenance Module:}
+    Maintenance staff will be able to identify equipment using its
+    Equipment ID and manage repair-related information. This module is
+    currently under development.
+
+    \item \textbf{Administrator Module:}
+    The administrator role is included for system-level management such
+    as user and role management. This functionality is currently under
+    development.
+
+    \item \textbf{Feedback and Notification Modules:}
+    Feedback and notifications are part of the planned system design.
+    These modules are currently under development.
+
 \end{itemize}
+
+The system is being developed as a mobile application only. There is no
+separate web-based administrator dashboard in the current project scope.
 
 \subsection{Core workflow}
 
-\textbf{Equipment workflow}
+\subsubsection*{Equipment workflow}
 
 \begin{enumerate}[leftmargin=0.7cm]
-    \item Student searches for an equipment item through the mobile application.
-    \item The application displays its availability and current condition.
-    \item Student submits an equipment request.
-    \item Sports officer reviews the request.
-    \item If approved, the equipment is issued to the student.
-    \item The system records the issue date and expected return date.
-    \item Student returns the equipment.
-    \item Sports staff records its condition.
-    \item Equipment is either marked available or sent for maintenance.
+
+    \item The student or coach logs into the mobile application.
+
+    \item The user views the available sports equipment.
+
+    \item The application displays relevant equipment information,
+    including availability and status.
+
+    \item The user selects the required equipment and submits a request.
+
+    \item The Sports Officer reviews the submitted request.
+
+    \item If the request is approved, the equipment can be issued to the
+    user.
+
+    \item The equipment record can be updated with relevant issue and
+    return information.
+
+    \item If the equipment requires repair, its unique Equipment ID can
+    be used to associate it with a maintenance record.
+
 \end{enumerate}
 
-\textbf{Facility booking workflow}
+\subsubsection*{Facility booking workflow}
 
 \begin{enumerate}[leftmargin=0.7cm]
-    \item Student or coach selects a sports facility.
-    \item The application displays available time slots.
-    \item User selects a suitable slot and submits a booking.
-    \item The system checks for existing bookings and conflicts.
-    \item The booking is confirmed or placed for approval depending on facility policy.
-    \item User receives an in-app notification or confirmation.
-    \item Booking history is stored for future reference.
+
+    \item The student or coach selects a sports facility.
+
+    \item The application displays information about the selected
+    facility and its availability.
+
+    \item The user selects the required date and time slot.
+
+    \item The system checks the existing booking information to
+    determine whether the selected slot is available.
+
+    \item If the slot is available, the booking information is stored
+    in the database.
+
+    \item The user can subsequently access the booking information
+    through the application.
+
 \end{enumerate}
 
-\textbf{Feedback and suggestion workflow}
+\subsubsection*{Maintenance workflow}
 
-\begin{enumerate}[leftmargin=0.7cm]
-    \item User submits a review, complaint, or suggestion through the application.
-    \item The system categorizes the feedback.
-    \item Sports administration reviews the submission.
-    \item Suggestion status changes from Submitted $\rightarrow$ Under Review $\rightarrow$ Accepted/Rejected $\rightarrow$ Implemented.
-    \item Users can view the status of their submitted suggestions.
-\end{enumerate}
+The maintenance process begins when an equipment item is reported as
+requiring attention. Maintenance staff first inspect the equipment to
+understand the problem. If repair is required, the equipment is marked
+as being under repair while the maintenance work is carried out. After
+the repair is completed, the equipment is inspected again and its status
+is updated. If the equipment is found to be usable, it is marked as
+available for future use.
 
-\subsection{Operational constraints for a campus mobile setting}
+Each maintenance record is associated with the corresponding Equipment
+ID so that maintenance staff can identify the exact equipment under
+repair.
+
+This module is part of the planned system and is not fully functional
+in the current prototype.
+
+\subsection{Operational constraints%
+    \BvrHint{\ldots campus mobile setting}
+}
 
 \begin{itemize}[leftmargin=0.7cm]
-    \item The application should use a lightweight mobile interface and remain usable on commonly available student smartphones.
-    
-    \item Core functions such as equipment search, booking, requests, and status tracking should require minimal steps.
-    
-    \item The application should handle moderate or intermittent network connectivity gracefully by providing clear loading, retry, and error states.
-    
-    \item The system should prevent double-booking of equipment and facilities.
-    
-    \item Equipment marked as damaged or under maintenance should not be available for normal booking.
-    
-    \item The project will focus on workflow correctness and reliable resource management rather than advanced prediction algorithms.
-    
-    \item The backend should be deployable using common cloud hosting and managed database services.
+
+    \item The application should use a lightweight and responsive
+    mobile interface suitable for commonly available student
+    smartphones.
+
+    \item Core functions such as equipment viewing, booking, and
+    equipment requests should require minimal steps.
+
+    \item The application should provide clear loading and error states
+    when communication with the backend is delayed or unavailable.
+
+    \item The system should prevent conflicting facility bookings.
+
+    \item Equipment marked as unavailable or under maintenance should not
+    be treated as normally available.
+
+    \item The system will prioritize workflow correctness and reliable
+    resource management rather than advanced prediction algorithms.
+
+    \item The backend and database will remain separate from the mobile
+    interface so that additional modules can be integrated later.
+
 \end{itemize}
 
-\section{Solution Approach %
-  \BvrHint{\ldots Engineering focus}}
+% =====================================================
+% 5. SOLUTION APPROACH
+% =====================================================
 
-This is an engineering course project, so we focus on mobile workflow design, role-based access, resource management, system correctness, and measurable performance rather than novel algorithm research.
+\section{Solution Approach%
+    \BvrHint{\ldots engineering focus}
+}
 
-\subsection{Resource availability and conflict checking %
-  \BvrHint{\ldots non-research}}
+This is an engineering course project, so the primary focus is on
+mobile workflow design, role-based access, resource management, database
+integration, system correctness, and iterative development rather than
+novel algorithmic research.
 
-Facility and equipment availability will be determined using:
+\subsection{Resource availability and conflict checking}
 
-\begin{itemize}[leftmargin=0.7cm]
-    \item current booking status,
-    \item booking time,
-    \item issue and return status,
-    \item maintenance status,
-    \item available resource quantity.
-\end{itemize}
+Facility and equipment availability will be determined using stored
+resource information, booking status, equipment quantity, condition,
+and maintenance status.
 
-The backend will perform server-side availability validation before confirming a booking. This will prevent conflicting reservations and double-booking.
+The backend will validate relevant availability information before
+storing booking-related records. This is intended to reduce conflicting
+facility reservations.
 
 \subsection{Equipment lifecycle management}
 
-Each trackable equipment item will have a lifecycle:
+Equipment records will contain a unique Equipment ID along with
+information such as name, category, quantity, condition, and status.
 
-\begin{center}
-\textbf{Available $\rightarrow$ Reserved $\rightarrow$ Issued $\rightarrow$ Returned $\rightarrow$ Inspected}
-\end{center}
+The equipment lifecycle begins when an item is available for use. When
+a user receives the equipment, its status can be recorded as issued.
+After the equipment is returned, its condition can be checked. The
+equipment can then either be made available again or associated with a
+maintenance process if repair is required.
 
-After inspection, the equipment is either marked available or sent for maintenance. This provides a clear history of equipment usage and maintenance.
+The use of Equipment IDs also allows individual pieces of equipment to
+be distinguished when multiple similar resources are present.
 
-\subsection{Feedback and suggestion management}
+\subsection{Role-based access}
 
-The mobile application will provide a dedicated feedback and suggestion box. Users can suggest new equipment, additional courts, facility improvements, or report recurring problems.
+The application begins with role selection followed by the login
+workflow.
 
-Examples include:
+The selected role determines the functionality available to the user.
 
-\begin{itemize}[leftmargin=0.7cm]
-    \item Request for additional badminton courts.
-    \item Request for more cricket practice nets.
-    \item Request for replacement of damaged basketballs.
-    \item Suggestions for improving court lighting.
-    \item Feedback about equipment availability or maintenance.
-\end{itemize}
-
-Administrators will review suggestions and update their status rather than automatically accepting them.
-
-\subsection{Mobile application architecture %
-  \BvrHint{\ldots mobile-based solution}}
-
-A mobile client-server architecture will be used:
+The main roles are:
 
 \begin{itemize}[leftmargin=0.7cm]
 
-    \item \textbf{Mobile Client:} cross-platform mobile interface for students, athletes, coaches, and operational staff, with screens for search, booking, requests, notifications, feedback, and status tracking.
-    
-    \item \textbf{Backend API:} authentication, authorization, equipment requests, booking logic, maintenance workflow, feedback management, notifications, and business-rule validation.
-    
-    \item \textbf{Database:} stores users, equipment, facilities, bookings, issue and return records, maintenance history, feedback, suggestions, and status history.
-    
-    \item \textbf{Optional Admin Dashboard:} a lightweight browser-based dashboard may be provided for sports administrators because inventory and analytics are easier to manage on a larger screen.
-    
+    \item Student / Player
+    \item Coach
+    \item Sports Officer
+    \item Administrator
+    \item Maintenance Staff
+
 \end{itemize}
 
-\subsection{CI/CD and fast delivery enabler}
+\subsection{Mobile application architecture}
 
-CI/CD will be used to:
+The system uses a mobile client-server architecture.
 
-\begin{itemize}[leftmargin=0.7cm]
-    \item Automatically build the mobile application and backend.
-    \item Run unit and integration tests on every change.
-    \item Detect failures before generating a release build.
-    \item Produce repeatable Android test builds.
-    \item Enable safe and frequent releases of incremental features.
-\end{itemize}
+The Flutter and Dart mobile application provides the interface through
+which users interact with the system. Requests from the application are
+handled by the Node.js backend, which contains the server-side
+application logic. The backend communicates with PostgreSQL whenever
+data needs to be stored or retrieved.
 
-\section{Evaluation Criterion %
-  \BvrHint{\ldots measurable and attributable}}
+This separation allows the mobile application, backend, and database to
+be developed and maintained as separate components.
 
-We define success using measurable metrics tied to the core workflow.
+\subsection{Technology stack}
 
-\subsection{Primary evaluation metric}
-
-\textbf{Equipment Request Processing Time:} time between equipment request submission and request approval or rejection.
-
-\begin{itemize}[leftmargin=0.7cm]
-    \item Target: median processing time $\leq$ 10 minutes during the pilot simulation.
-    \item Attribution: measured using timestamps stored in the database.
-\end{itemize}
-
-\subsection{Secondary evaluation metrics}
+The project uses the following technologies:
 
 \begin{itemize}[leftmargin=0.7cm]
 
-    \item \textbf{Booking Conflict Rate:} percentage of attempted bookings resulting in confirmed scheduling conflicts. Target: 0\% confirmed double-bookings.
-    
-    \item \textbf{Equipment Availability Accuracy:} difference between application-reported availability and actual simulated inventory. Target: $\geq$ 98\% accuracy during pilot testing.
-    
-    \item \textbf{Return Tracking:} percentage of issued equipment for which return status is correctly recorded. Target: $\geq$ 99\%.
-    
-    \item \textbf{Feedback Resolution:} percentage of submitted feedback or suggestions that receive an administrative status update. Target: $\geq$ 90\% during the pilot.
-    
-    \item \textbf{User Clarity:} users rate the clarity of booking and request status on a simple 1--5 scale. Target: average $\geq$ 4/5.
-    
-    \item \textbf{Reliability:} availability of login, equipment search, booking, and request functions during the testing or pilot window. Target: $\geq$ 99\% availability.
-    
+    \item \textbf{Flutter:}
+    Cross-platform mobile application framework.
+
+    \item \textbf{Dart:}
+    Programming language used for the mobile application.
+
+    \item \textbf{Node.js:}
+    Backend runtime and server-side implementation.
+
+    \item \textbf{PostgreSQL:}
+    Relational database for persistent application data.
+
+    \item \textbf{Visual Studio Code:}
+    Development environment.
+
+    \item \textbf{Git and GitHub:}
+    Source-code version control and collaboration.
+
 \end{itemize}
 
-\subsection{Pilot validation plan %
-  \BvrHint{\ldots high-level}}
+% =====================================================
+% 6. EVALUATION CRITERION
+% =====================================================
+
+\section{Evaluation Criterion%
+    \BvrHint{\ldots measurable after implementation}
+}
+
+The current submission is a prototype-stage project. Therefore, formal
+evaluation results are not claimed at this stage.
+
+After the remaining modules have been implemented, the system can be
+evaluated using functional and usability-oriented metrics.
+
+\subsection{Primary evaluation criteria}
+
+\textbf{Core workflow correctness:}
+
+The main workflows should operate correctly from the mobile interface
+through the backend and database.
+
+The following should be verified:
 
 \begin{itemize}[leftmargin=0.7cm]
-    \item Recruit 10--20 student users for the initial pilot.
-    \item Include 2--3 sports administration or coach roles in the simulation.
-    \item Include a maintenance role for equipment lifecycle testing.
-    \item Create a representative inventory of sports equipment and facilities.
-    \item Test equipment requests, returns, booking conflicts, maintenance, notifications, and feedback workflows.
-    \item Collect user feedback through a short 1--5 scale questionnaire.
-    \item Compare system-generated timestamps and outcomes across iterations.
+
+    \item Successful role selection and login.
+
+    \item Correct display of equipment information.
+
+    \item Correct submission and storage of equipment requests.
+
+    \item Correct display of facilities.
+
+    \item Correct facility booking.
+
+    \item Correct handling of booking conflicts.
+
+    \item Correct storage and retrieval of booking information.
+
 \end{itemize}
 
-\section{Scalability %
-  \BvrHint{\ldots with foresight}}
+\subsection{Secondary evaluation criteria}
 
-The proposition should scale in both theoretical and practical senses.
+\begin{itemize}[leftmargin=0.7cm]
+
+    \item \textbf{Availability accuracy:}
+    Equipment and facility availability shown by the application should
+    correspond to the database records.
+
+    \item \textbf{Booking correctness:}
+    The system should not confirm conflicting bookings.
+
+    \item \textbf{Request correctness:}
+    Equipment requests should be stored with the correct user and
+    request information.
+
+    \item \textbf{Equipment identification:}
+    Equipment IDs should uniquely identify equipment records.
+
+    \item \textbf{Usability:}
+    Common workflows such as viewing resources, making a booking, and
+    submitting a request should be understandable to users.
+
+    \item \textbf{Reliability:}
+    Core application functionality should remain usable during normal
+    prototype testing.
+
+\end{itemize}
+
+\subsection{Future validation plan}
+
+Once the complete prototype is available, representative users can be
+asked to perform common tasks such as:
+
+\begin{itemize}[leftmargin=0.7cm]
+
+    \item Log in using their assigned role.
+
+    \item Search or view equipment.
+
+    \item Submit an equipment request.
+
+    \item View facility availability.
+
+    \item Book a facility.
+
+    \item Attempt a conflicting booking.
+
+    \item Review booking information.
+
+    \item Test equipment maintenance identification using Equipment ID.
+
+\end{itemize}
+
+The results of such testing will be documented in a later project
+iteration.
+
+% =====================================================
+% 7. SCALABILITY
+% =====================================================
+
+\section{Scalability%
+    \BvrHint{\ldots with foresight}
+}
+
+The system should support growth in the number of students, coaches,
+equipment items, facilities, bookings, and requests.
 
 \begin{enumerate}[leftmargin=0.7cm]
 
-    \item \textbf{Scalable (theoretically):} The system should support growth in the number of students, sports, equipment items, facilities, bookings, feedback records, and concurrent users by:
-    
-    \begin{itemize}[leftmargin=0.7cm]
-        \item separating the mobile client from backend services,
-        \item enabling pagination and indexing for common queries,
-        \item using efficient search and filtering,
-        \item using stateless API design,
-        \item minimizing unnecessary data transfer to mobile devices.
-    \end{itemize}
-    
-    \item \textbf{Operationally deployable (practically):} The system should run using:
-    
-    \begin{itemize}[leftmargin=0.7cm]
-        \item managed cloud database,
-        \item cloud-hosted backend API,
-        \item mobile application release builds,
-        \item CI/CD pipeline for testing and staging.
-    \end{itemize}
+    \item \textbf{Scalable architecture:}
+    The mobile client, backend, and database are separated so that each
+    layer can be developed and optimized independently.
+
+    \item \textbf{Database scalability:}
+    Database indexing can be introduced for frequently searched
+    equipment, facility, and booking information.
+
+    \item \textbf{Large resource lists:}
+    Pagination can be introduced when the equipment and booking
+    catalogue becomes large.
+
+    \item \textbf{Efficient search:}
+    Search and filtering can be improved for large campus inventories.
+
+    \item \textbf{Backend scalability:}
+    The Node.js backend can be extended to support a larger number of
+    concurrent mobile users.
+
+    \item \textbf{Future deployment:}
+    The architecture can later be deployed using cloud-hosted backend
+    and managed database services.
 
 \end{enumerate}
 
+% =====================================================
+% 8. ENGINE AVAILABILITY HEURISTIC
+% =====================================================
+
 \section{Engine availability heuristic}
 
-A mature set of tools and services is available to implement this as a cross-platform mobile project:
+A mature set of development tools and technologies is available to
+implement the proposed mobile application:
 
 \begin{itemize}[leftmargin=0.7cm]
 
-    \item Cross-platform mobile framework such as Flutter or React Native.
-    
-    \item Backend framework for REST APIs.
-    
-    \item Managed relational database for structured resource and booking data.
-    
-    \item Authentication and role-based authorization.
-    
-    \item Cloud or object storage for optional equipment images.
-    
-    \item Push notification service for booking and request updates.
-    
-    \item Testing framework for unit, integration, and mobile UI testing.
-    
-    \item CI runner for automated testing and Android build generation.
-    
-    \item Cloud hosting or staging environment for the backend.
-    
+    \item \textbf{Flutter} for cross-platform mobile development.
+
+    \item \textbf{Dart} for application programming.
+
+    \item \textbf{Node.js} for backend API development.
+
+    \item \textbf{PostgreSQL} for structured relational data.
+
+    \item \textbf{Git/GitHub} for version control and collaboration.
+
+    \item Authentication mechanisms for role-based access.
+
+    \item Testing tools for validating application and backend
+    functionality.
+
 \end{itemize}
 
-We will use these mature components to focus on workflow design, correctness, testing, and measurement rather than developing infrastructure from scratch.
+These mature technologies allow the project to focus primarily on
+workflow design, resource management, database integration, and system
+correctness rather than developing new infrastructure.
 
-\section{Project scope and deliverables %
-  \BvrHint{\ldots iteration-friendly}}
+% =====================================================
+% 9. PROJECT SCOPE AND DELIVERABLES
+% =====================================================
 
-\subsection{Initial deliverable %
-  \BvrHint{\ldots first iteration}}
+\section{Project scope and deliverables%
+    \BvrHint{\ldots iteration-friendly}
+}
+
+\subsection{Initial deliverable%
+    \BvrHint{\ldots working prototype}
+}
+
+The initial prototype focuses on the following functionality:
 
 \begin{itemize}[leftmargin=0.7cm]
 
-    \item Mobile application setup and navigation.
-    \item User registration and login.
-    \item Role-based access.
-    \item Sports and equipment catalogue.
+    \item Flutter mobile application setup.
+
+    \item Role selection.
+
+    \item User login.
+
+    \item Student / Player functionality.
+
+    \item Coach functionality.
+
+    \item Sports Officer functionality.
+
+    \item Equipment catalogue and equipment information.
+
     \item Equipment availability.
+
     \item Equipment request submission.
-    \item Sports staff approval and rejection.
-    \item Equipment issue and return.
-    \item Basic facility listing.
+
+    \item Facility listing.
+
+    \item Facility availability.
+
     \item Basic facility booking.
-    \item Database timestamps and activity logging.
-    \item CI pipeline with backend and mobile tests.
-    
+
+    \item Node.js backend.
+
+    \item PostgreSQL database integration.
+
+    \item Backend and mobile application communication.
+
 \end{itemize}
 
 \subsection{Subsequent deliverables}
 
+The following modules will be developed incrementally:
+
 \begin{itemize}[leftmargin=0.7cm]
 
-    \item Equipment maintenance workflow.
-    \item Damage reporting with optional images.
-    \item Fine and penalty calculation.
-    \item Facility booking conflict handling.
-    \item Coach and team functionality.
-    \item Push notifications.
-    \item Feedback and review system.
-    \item Equipment and court suggestion box.
-    \item Admin analytics dashboard.
-    \item Search and filtering.
-    \item Equipment utilization reports.
-    \item Improved scalability through indexing and pagination.
-    
+    \item Administrator functionality.
+
+    \item Maintenance Staff interface.
+
+    \item Equipment-specific maintenance tracking.
+
+    \item Equipment damage and repair status tracking.
+
+    \item Improved equipment issue and return tracking.
+
+    \item Feedback and suggestion functionality.
+
+    \item Notification functionality.
+
+    \item Booking and equipment history.
+
+    \item Improved search and filtering.
+
+    \item Additional resource management features.
+
+    \item Comprehensive testing and evaluation.
+
 \end{itemize}
+
+% =====================================================
+% 10. RISKS AND MITIGATIONS
+% =====================================================
 
 \section{Risks and mitigations}
 
 \begin{itemize}[leftmargin=0.7cm]
 
-    \item \textbf{Incorrect inventory information:} Require staff confirmation during issue and return and maintain timestamped inventory records.
-    
-    \item \textbf{Double booking:} Implement server-side availability validation before confirming bookings.
-    
-    \item \textbf{Unreasonable or duplicate suggestions:} Categorize feedback and allow administrators to mark suggestions as duplicate, rejected, or under review.
-    
-    \item \textbf{Equipment damage disputes:} Record equipment condition at issue and return, with optional image attachments.
-    
-    \item \textbf{User adoption:} Keep common mobile workflows such as search, booking, and requests short and simple.
-    
-    \item \textbf{Network/connectivity issues:} Provide clear loading, retry, timeout, and error states while keeping critical operations server-validated.
-    
-    \item \textbf{Platform/device compatibility:} Test on a representative range of Android devices and screen sizes.
-    
-    \item \textbf{Evaluation measurement ambiguity:} Instrument timestamps and define clear status transitions before development begins.
-    
+    \item \textbf{Incorrect inventory information:}
+    Maintain centralized equipment records and ensure that equipment
+    status is updated through the application.
+
+    \item \textbf{Double booking:}
+    Perform availability validation before confirming a facility
+    booking.
+
+    \item \textbf{Equipment identification problems:}
+    Assign a unique Equipment ID to each trackable equipment record.
+
+    \item \textbf{Equipment condition disputes:}
+    Maintain condition information when equipment is issued and
+    returned. A more detailed condition workflow can be introduced
+    later.
+
+    \item \textbf{Incomplete prototype modules:}
+    Prioritize core functionality first and implement administrator,
+    maintenance, feedback, and notification modules incrementally.
+
+    \item \textbf{Network/connectivity issues:}
+    Provide appropriate loading, retry, timeout, and error states in
+    the mobile application.
+
+    \item \textbf{Device compatibility:}
+    Test the mobile application on representative devices and screen
+    sizes.
+
+    \item \textbf{User adoption:}
+    Keep common workflows such as login, resource viewing, booking, and
+    equipment requests simple.
+
 \end{itemize}
+
+% =====================================================
+% 11. SUMMARY
+% =====================================================
 
 \section{Summary}
 
-This project proposes a deployable mobile \textbf{Sports Resource Management System} for managing university sports equipment and facilities.
+This project proposes a centralized mobile Sports Resource Management
+System for managing university sports equipment and facilities.
 
-The application connects \textbf{students, athletes, coaches, sports administrators, maintenance staff, and administrators} through a centralized platform for equipment requests, bookings, issue and return operations, maintenance, and user feedback.
+The application connects students, coaches, sports officers,
+administrators, and maintenance staff through role-based mobile
+workflows. Core functionality includes equipment management, facility
+availability, facility booking, and equipment requests.
 
-The addition of a structured \textbf{review and suggestion system} allows students to communicate requirements such as new equipment, additional courts, and facility improvements while enabling sports administrators to track and prioritize these suggestions.
+The system is being developed using Flutter and Dart for the mobile
+application, Node.js for the backend, and PostgreSQL for the database.
+The separation between the mobile client, backend, and database provides
+a foundation for future expansion.
 
-The project meets the Software Engineering course requirements by emphasizing multi-user requirements, role-based workflows, database design, UML and system modeling, iterative development, CI/CD, testing, measurable evaluation, and scalability.
+The current prototype focuses on the core working functionality.
+Administrator functionality, maintenance tracking, feedback, and
+notifications are planned as subsequent modules rather than being
+claimed as completed features.
 
-The initial implementation will focus on the core equipment and booking workflow, with maintenance, analytics, notifications, and feedback or suggestion functionality added through subsequent iterations.
+The use of unique Equipment IDs will allow individual equipment items to
+be identified when they are issued, returned, damaged, or eventually
+sent for maintenance.
+
+The project therefore focuses on practical software engineering
+requirements including multi-user workflows, role-based access,
+database design, mobile application development, backend integration,
+system correctness, iterative development, and future scalability.
 
 \end{document}

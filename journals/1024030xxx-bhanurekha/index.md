@@ -1,8 +1,13 @@
-# Bhanu’s Journal
+# Sports Resource Management System
 
-Roll No. 1024030xxx
-Name: Bhanurekha Ganesan
+## Group 7
 
-+  [W1 : Order of flags in compilation
-   command](./w1-ticket-resolution.md)
-+  […]
+### Team Members
+- Soumya Smita Sahoo - 1024240041
+- Gaganpreet Kaur - 1024240044
+- Himasri Chadalavada - 1024240038
+
+## Project
+Sports Resource Management System
+
+This directory contains the weekly development journals for the project.
